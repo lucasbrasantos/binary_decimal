@@ -1,4 +1,3 @@
-const binary = ;
 
 var num = binary.toString().split("").reverse().join("");
 var decimal = 0;
