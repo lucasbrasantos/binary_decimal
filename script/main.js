@@ -1,12 +1,18 @@
+// binary to decimal //
 
-var num = binary.toString().split("").reverse().join("");
-var decimal = 0;
+function binaryDecimal(){
 
-for (let i = 0; i < num.length; i++){
-    let result = convert(num[i], i)
-    if (result != null) {
-    	decimal += result;
-    }
+	let decimal = 0,
+		binary = document.getElementById('binary').value.toString();
+
+	let num = binary.split("").reverse().join("");
+
+	for (let i = 0; i < num.length; i++){
+	    let result = convert(num[i], i);
+	    if (result != null) decimal += result;
+	}
+
+	showData(binary, decimal);
 }
 
 function convert(value, index){
@@ -16,4 +22,78 @@ function convert(value, index){
     return null;
 }
 
-console.log(`binario: ${binary}\ndecimal: ${decimal}`);
+function showData(a, b){
+
+	document.getElementById('binary').value = a;
+	document.getElementById('decimal').value = b;
+
+	console.log(`binario: ${a}\ndecimal: ${b}`);
+}
+
+
+////////////////////////////////////////////////
+
+// decimal to binary //
+
+function decimalBinary(){
+	var binary = '',
+		decimal = document.getElementById('decimal').value;
+
+
+
+	function calcular(n){
+	    let foo = true;
+	    
+	    while(n/2 !== 1){
+
+	        if(n%2 == 1) binary += 1;
+	        if(n%2 == 0) binary += 0;
+
+	        n = Math.floor(n/2);
+
+	        if (n == 1) {
+	        	foo = false;
+	        	break;
+	        }
+	    }
+
+	    if (foo) {
+	    	binary += 0;
+	    	binary += 1;
+	    }else {
+	    	binary += 1;
+	    }
+
+	    binary = binary.split("").reverse().join("");
+	}
+
+	if (decimal !== "") {
+		calcular(decimal);
+	}else {
+		return;
+	}
+
+	document.getElementById('decimal').value = decimal;
+	document.getElementById('binary').value = binary;
+}
+
+
+////////////////////////////////////////////////
+
+
+function trigger(){
+
+	var trigger = 0;
+
+	if (trigger == 0) {
+		//binary to decimal
+
+		binaryDecimal();
+
+	}else{
+		//decimal to binary
+
+		decimalBinary();
+
+	}
+}
