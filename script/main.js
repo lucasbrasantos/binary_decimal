@@ -80,12 +80,11 @@ function decimalBinary(){
 
 ////////////////////////////////////////////////
 
+var trigger_ = true;
 
 function trigger(){
 
-	var trigger = 0;
-
-	if (trigger == 0) {
+	if (trigger_ == true) {
 		//binary to decimal
 
 		binaryDecimal();
@@ -96,4 +95,20 @@ function trigger(){
 		decimalBinary();
 
 	}
+}
+
+
+function switcher(){
+	
+	let checker = document.getElementById('checker').checked;
+
+	if (checker){
+		trigger_ = true;
+		document.getElementById('textTitle').innerHTML = 'Binary To Decimal!'
+	}else {
+		trigger_ = false;
+		document.getElementById('textTitle').innerHTML = 'Decimal To Binary!'
+	}
+
+	console.log(trigger_);
 }

@@ -9,7 +9,7 @@
 	<body>
 
 		<div id="title">
-			<h1>Binary To Decimal!</h1>
+			<h1 id="textTitle">Binary To Decimal!</h1>
 			<hr>
 		</div>
 		<div id="main">
@@ -24,7 +24,15 @@
 					<input class="input" name="decimal" id="decimal" type="number">
 				</div>
 
-				<button onclick="trigger()">calcular</button>
+				<div class="buttons">
+					<button onclick="trigger()">calcular</button>
+					
+
+					<label class="switch">
+						<input type="checkbox" id="checker" checked onchange="switcher()">
+						<span class="slider round"></span>
+					</label>
+				</div>
 			</section>
 		</div>
 

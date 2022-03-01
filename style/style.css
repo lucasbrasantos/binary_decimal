@@ -4,6 +4,7 @@
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	font-family: 'Roboto', sans-serif;
 }
 
 body{
@@ -29,12 +30,13 @@ body{
 #title hr{
 	margin: .8rem 0;
 	width: 75%;
+	border: 1px solid;
 	border-color: #BCBCBC;
 }
 
 #main{
 	width: 100%;
-	height: 60%;
+	height: 30rem;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -47,7 +49,7 @@ body{
 	justify-content: center;
 	flex-direction: column;
 	height: auto;
-	width: 36%;
+	width: 35rem;
 	background: #D0D3D6;
 	border-radius: 2rem;
 
@@ -78,4 +80,111 @@ body{
 }
 .input:focus{
 	outline: none;
+}
+
+.buttons{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 6rem;
+	flex-direction: row;
+	padding: 1rem 0;
+}
+
+.buttons button{
+	padding: .5rem 1rem;
+	font-size: 1.6em;
+	border-radius: 1rem;
+	outline: none;
+	border: none;
+	transition: .5s;
+}
+
+.buttons button:focus{
+	outline: .1rem solid rgba(0,0,0, 20%);
+}
+
+.buttons button:hover{
+	transform: translateX(-.2rem) translateY(-.2rem) scale(1.01);
+	box-shadow: .2rem .2rem .3rem rgba(2, 2, 2, 60%);
+}
+
+.buttons button:active{
+	box-shadow: .3rem .3rem .4rem rgba(2, 2, 2, 10%);
+	transform: translateX(-.2rem) translateY(-.0rem);
+}
+
+.switch{
+	margin-right: 2rem;
+	position: relative;
+	display: inline-block;
+    width: 5rem;
+    height: 2rem;
+}
+
+.switch input{
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+
+.switch:before{
+	position: relative;
+	content: 'Binario';
+	width: 100%;
+	height: 100%;
+	top: 20%;
+	left: -70%;
+	z-index: 1;
+}
+
+.switch:after{
+	position: relative;
+	content: 'Decimal';
+	width: 100%;
+	height: 100%;
+	top: -36%;
+	right: -110%;
+	z-index: 1;
+}
+
+.slider{
+	display: flex;
+	align-items: center;
+	position: absolute;
+	cursor: pointer;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background-color: #4921F3;
+	transition: .4s;
+	border-radius: 1rem;
+}
+
+.slider:before{
+    box-sizing: border-box;
+    content: "";
+    width: 35%;
+    height: 80%;
+    transform: translateX(175%);
+    background: white;
+    transition: .4s;
+    border-radius: 1rem;
+}
+
+input:checked + .slider{
+   background: #2198F3;
+}
+
+input:focus + .slider{
+    box-shadow: 0 0 .1rem 1px #2198F3;
+}
+
+input:checked:focus + .slider{
+    box-shadow: 0 0 .1rem 1px #4921F3;
+}
+
+input:checked + .slider:before{
+	transform: translateX(10%);
 }
